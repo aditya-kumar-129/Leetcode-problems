@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/path-sum/
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -28,13 +30,10 @@ public:
     if (!root)
       return;
     num += root->val;
-    if (!root->left && !root->right)
+    if (!root->left && !root->right && num == targetSum)
     {
-      if (num == targetSum)
-      {
         flag = true;
         return;
-      }
     }
     DFS(root->left, num, targetSum);
     DFS(root->right, num, targetSum);

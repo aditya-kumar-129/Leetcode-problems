@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/add-two-numbers-ii/
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -15,10 +17,10 @@ public:
 
   ListNode* reverse(ListNode* head)
   {
-    ListNode* prev = NULL;
+    ListNode* prev = nullptr;
     ListNode* current = head;
     ListNode* next;
-    while (current != NULL)
+    while (current != nullptr)
     {
       next = current->next;
       current->next = prev;
@@ -32,9 +34,9 @@ public:
   {
     first = reverse(first);
     second = reverse(second);
-    ListNode* res = NULL, * temp;
+    ListNode* res = nullptr, * temp;
     int carry = 0, newval;
-    while (first != NULL || second != NULL || carry != 0)
+    while (first != nullptr || second != nullptr || carry != 0)
     {
       newval = carry;
       if (first)

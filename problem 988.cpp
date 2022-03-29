@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/smallest-string-starting-from-leaf/
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -17,8 +19,6 @@ public:
   {
     string temp;
     DFS(root, temp);
-    // for(auto it : ans)
-    //   cout<<it<<" ";
     sort(ans.begin(), ans.end());
     return ans[0];
   }
@@ -38,7 +38,7 @@ public:
   }
 };
 
-// In this case You don't have to sort
+// In this case You don't have to sort as well as space complexity will also be O(1)
 
 class Solution {
 public:

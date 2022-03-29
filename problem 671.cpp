@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
+
 // Heve a look on the below video:- 
 // https://www.youtube.com/watch?v=zex8_82T46U
 
@@ -44,7 +46,29 @@ class Solution {
 public:
   vector<int> ans;
   void inorderTraversal(TreeNode* root) {
-    if (root != NULL)
+    if (root != nullptr)
+    {
+      inorderTraversal(root->left);
+      ans.push_back(root->val);
+      inorderTraversal(root->right);
+    }
+  }
+  int findSecondMinimumValue(TreeNode* root)
+  {
+    inorderTraversal(root);
+    sort(ans.begin(), ans.end());
+    for (int i = 0;i < ans.size() - 1;i++)
+      if (ans[i] != ans[i + 1])
+        return ans[i + 1];
+    return -1;
+  }
+};
+
+class Solution {
+public:
+  vector<int> ans;
+  void inorderTraversal(TreeNode* root) {
+    if (root != nullptr)
     {
       inorderTraversal(root->left);
       ans.push_back(root->val);

@@ -1,7 +1,8 @@
+// Question link :- https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+
 #include<bits/stdc++.h>
 using namespace std;
 
-// INORDER TRAVERSAL OF A BINARY TREE
 // Definition for a binary tree node.
 struct TreeNode {
   int val;
@@ -17,7 +18,7 @@ class Solution {
 public:
   vector<int> ans;
   void inorderTraversal(TreeNode* root) {
-    if (root != NULL)
+    if (root != nullptr)
     {
       inorderTraversal(root->left);
       ans.push_back(root->val);
@@ -37,7 +38,7 @@ class Solution {
 public:
   vector<int> ans;
   void inorderTraversal(TreeNode* root, int& k) {
-    if (root != NULL)
+    if (root != nullptr)
     {
       inorderTraversal(root->left, k);
       if (ans.size() == k)return;

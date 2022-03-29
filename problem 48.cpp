@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/rotate-image/
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -7,7 +9,7 @@ public:
   {
     // Below code for transpose is only for sqaure matrix
     for (int i = 0;i < arr.size();i++)
-      for (int j = 0;j < i;j++)
+      for (int j = i;j < arr.size();j++)
         swap(arr[i][j], arr[j][i]);
 
     for (int r = 0;r < arr.size();r++)

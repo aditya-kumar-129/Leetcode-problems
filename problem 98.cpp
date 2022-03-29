@@ -1,7 +1,8 @@
+// Question link :- https://leetcode.com/problems/validate-binary-search-tree/
+
 #include<bits/stdc++.h>
 using namespace std;
-// POST ORDER TRAVERSAL OF A BINARY TREE
-// Definition for a binary tree node.
+
 struct TreeNode {
   int val;
   TreeNode* left;
@@ -31,7 +32,7 @@ class Solution {
 public:
   int check(TreeNode* node, long min, long max)
   {
-    if (node == NULL)
+    if (node == nullptr)
       return 1;
     if (node->val <= min || node->val >= max)
       return 0;

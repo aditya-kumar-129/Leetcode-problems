@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/binary-tree-postorder-traversal/
+
 #include<bits/stdc++.h>
 using namespace std;
 // POST ORDER TRAVERSAL OF A BINARY TREE
@@ -15,7 +17,7 @@ class Solution {
 public:
   vector<int> ans;
   vector<int> postorderTraversal(TreeNode* root) {
-    if (root != NULL)
+    if (root != nullptr)
     {
       postorderTraversal(root->left);
       postorderTraversal(root->right);

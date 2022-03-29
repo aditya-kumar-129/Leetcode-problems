@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/find-mode-in-binary-search-tree/
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -15,7 +17,7 @@ class Solution {
 public:
   map <int, int> mp;
   void inorderTraversal(TreeNode* root) {
-    if (root != NULL)
+    if (root != nullptr)
     {
       inorderTraversal(root->left);
       mp[root->val]++;
@@ -30,10 +32,8 @@ public:
     for(auto it :mp)
       max_frequency = max(max_frequency,it.second);
     for(auto it :mp)
-    {
       if(it.second == max_frequency)
         ans.push_back(it.first);
-    }
     return ans;
   }
 };

@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/3sum/
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -26,8 +28,10 @@ public:
             temp.push_back(nums[high]);
             ans.push_back(temp);
             // To ignore the duplicate pairs 
-            while (low < high && nums[low] == nums[low + 1]) low++;
-            while (low < high && nums[high] == nums[high - 1]) high--;
+            while (low < high && nums[low] == nums[low + 1]) 
+              low++;
+            while (low < high && nums[high] == nums[high - 1]) 
+              high--;
             low++;
             high--;
           }

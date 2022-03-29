@@ -1,3 +1,7 @@
+// Question link :- https://leetcode.com/problems/shortest-distance-to-a-character/
+
+// Youtube video :- https://www.youtube.com/watch?v=YMKpDBmDJQE
+
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {

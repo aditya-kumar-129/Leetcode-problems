@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -15,7 +17,7 @@ public:
   vector<int> ans;
   vector<int> inorderTraversal(TreeNode* root)
   {
-    if (root != NULL)
+    if (root != nullptr)
     {
       inorderTraversal(root->left);
       ans.push_back(root->val);

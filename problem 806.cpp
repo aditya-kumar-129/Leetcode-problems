@@ -1,11 +1,13 @@
+// Question link :- https://leetcode.com/problems/number-of-lines-to-write-string/
+
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
 public:
   vector<int> numberOfLines(vector<int>& v, string s) {
-    int line = 0;
-    int max = 100;
-    int count = 0;
+    int line = 0;     // count the number of lines 
+    int max = 100;    // to check how many pixel value are remaining
+    int count = 0;    // to check how many pixels have been used
     vector <int> ans;
     for (int i = 0;i < s.length();i++)
     {
@@ -19,9 +21,9 @@ public:
       count += v[s[i] - 'a'];
       max -= v[s[i] - 'a'];
     }
-    if (max != 0)
+    if (max != 0)       // in case the line is partially filled
       line++;
-    if (count == 100)
+    if (count == 100)    // in case the line is fully used
       line++;
     ans.push_back(line);
     ans.push_back(100 - max);

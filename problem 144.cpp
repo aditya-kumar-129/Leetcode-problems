@@ -1,3 +1,5 @@
+// Question link :- https://leetcode.com/problems/binary-tree-preorder-traversal/
+
 #include<bits/stdc++.h>
 using namespace std;
 // PRE ORDER TRAVERSAL OF A BINARY TREE
@@ -15,7 +17,7 @@ class Solution {
 public:
   vector<int> ans;
   vector<int> preorderTraversal(TreeNode* root) {
-    if (root != NULL)
+    if (root != nullptr)
     {
       ans.push_back(root->val);
       preorderTraversal(root->left);

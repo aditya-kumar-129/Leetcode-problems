@@ -1,9 +1,10 @@
+// Question link :- https://leetcode.com/problems/merge-intervals/
+
 #include<bits/stdc++.h>
 using namespace std;
 
 class Solution {
 public:
-
   vector<vector<int>> merge(vector<vector<int>>& intervals)
   {
     vector<vector<int>> ans;
@@ -18,12 +19,8 @@ public:
         second_term = it[1];
       }
       else if (second_term >= it[0])
-      {
-        if (second_term > it[1])
-          second_term = second_term;
-        else
+        if (second_term < it[1])
           second_term = it[1];
-      }
       else
       {
         intermediate_pair.push_back(second_term);
