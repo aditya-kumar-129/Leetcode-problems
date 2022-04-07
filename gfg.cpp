@@ -1,107 +1,101 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// struct Node {
-//   int data;
-//   struct Node* left;
-//   struct Node* right;
-//   Node(int val)
-//   {
-//     data = val;
-//     left = NULL;
-//     right = NULL;
-//   }
-// };
-
-// class Solution {
-// public:
-//   int findSecondMinimumValue(Node* root)
-//   {
-//     if (!root)
-//       return -1;
-//     if (!root->left && !root->right)
-//       return -1;
-//     auto left = root->left->data;
-//     auto right = root->right->data;
-
-//     if (root->data == root->left->data)
-//       left = findSecondMinimumValue(root->left);
-//     if (root->data == root->right->data)
-//       right = findSecondMinimumValue(root->right);
-
-//     if (left != -1 && right != -1)
-//       return min(left, right);
-//     else if (left != -1)
-//       return left;
-//     else
-//       return right;
-//   }
-// };
-
-// int main()
-// {
-//   struct Node* root = new Node(2);
-//   root->left = new Node(2);
-//   root->right = new Node(5);
-//   root->right->left = new Node(5);
-//   root->right->right = new Node(7);
-//   Solution obj;
-//   int ans = obj.findSecondMinimumValue(root);
-//   cout << ans << endl;
-//   return 0;
-// }
-
-// // This code is contributed by Aditya Kumar (adityakumar129)
-
-
 #include <bits/stdc++.h>
 using namespace std;
 
 struct Node {
-  int data;
-  struct Node* left;
-  struct Node* right;
-  Node(int val)
-  {
-    data = val;
-    left = NULL;
-    right = NULL;
-  }
+  char val;
+  vector<Node*> children;
 };
 
-class Solution {
+// Utility function to create a new tree node
+Node* newNode(int key)
+{
+  Node* temp = new Node;
+  temp->val = key;
+  return temp;
+}
+
+class LevelOrderTraversal {
 public:
-  vector<int> ans;
-  void inorderTraversal(Node* root)
+  void levelOrder(Node* root)
   {
-    if (root != NULL) {
-      inorderTraversal(root->left);
-      ans.push_back(root->data);
-      inorderTraversal(root->right);
+    vector<vector<int> > ans;
+    if (!root)
+      cout << "N-Ary tree does not any nodes";
+    // create two queues main_queue and child_queue
+    queue<Node*> main_queue, child_queue;
+    // push the root value in the main_queue
+    main_queue.push(root);
+    // create a temp vector to store the all the node
+    // values present at a particular level
+    vector<int> temp;
+    // Run a while loop until the main_queue is empty
+    while (!main_queue.empty()) {
+      // get the front of the main_queue
+      auto tempNode = main_queue.front();
+      // push the value of the front of the main queue
+      // in the temp vector
+      temp.push_back(tempNode->val);
+      // push all the child of the popped node in the
+      // child queue
+      for (auto it : tempNode->children)
+        child_queue.push(it);
+      // pop the front of the main queue
+      main_queue.pop();
+      // if main_queue becomes empty and child_queue
+      // is not empty then swap the content of the two
+      // queues
+      if (main_queue.empty()) {
+        main_queue = child_queue;
+        queue<Node*> temp1;
+        swap(temp1, child_queue);
+        // push the temporary vector in the ans
+        // vector
+        ans.push_back(temp);
+        // clear the temporary vector
+        temp.clear();
+      }
     }
-  }
-  int findSecondMinimumValue(Node* root)
-  {
-    inorderTraversal(root);
-    sort(ans.begin(), ans.end());
-    for (int i = 0; i < ans.size() - 1; i++)
-      if (ans[i] != ans[i + 1])
-        return ans[i + 1];
-    return -1;
+    for (auto it : ans) {
+      for (auto v : it)
+        cout << v << " ";
+      cout << endl;
+    }
   }
 };
 
 int main()
 {
-  struct Node* root = new Node(2);
-  root->left = new Node(2);
-  root->right = new Node(5);
-  root->right->left = new Node(5);
-  root->right->right = new Node(7);
-  Solution obj;
-  int ans = obj.findSecondMinimumValue(root);
-  cout << ans << endl;
+  Node* root = newNode(1);
+  root->children.push_back(newNode(3));
+  root->children.push_back(newNode(2));
+  root->children.push_back(newNode(4));
+  root->children[0]->children.push_back(newNode(5));
+  root->children[0]->children.push_back(newNode(6));
+  LevelOrderTraversal obj;
+  obj.levelOrder(root);
   return 0;
 }
 
-// This code is contributed by Aditya Kumar (adityakumar129)
+// This code is contributed by aditya kumar (adityakumar129)
+
+// Java implementation of the above problem
+// https://www.studytonight.com/advanced-data-structures/nary-tree
+
+
+// https://www.geeksforgeeks.org/flatten-a-binary-tree-into-linked-list/
+// reference striver video
+// approach :- 
+// class Solution {
+// public:
+//   TreeNode* prev = nullptr;
+//   void flatten(TreeNode* root)
+//   {
+//     if (!root)
+//       return;
+//     flatten(root->right);
+//     flatten(root->left);
+//     root->right = prev;
+//     root->left = nullptr;
+//     prev = root;
+//   }
+// };
