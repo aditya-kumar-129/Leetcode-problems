@@ -1,88 +1,10 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-struct Node {
-  char val;
-  vector<Node*> children;
-};
-
-// Utility function to create a new tree node
-Node* newNode(int key)
-{
-  Node* temp = new Node;
-  temp->val = key;
-  return temp;
-}
-
-class LevelOrderTraversal {
-public:
-  void levelOrder(Node* root)
-  {
-    vector<vector<int> > ans;
-    if (!root)
-      cout << "N-Ary tree does not any nodes";
-    // create two queues main_queue and child_queue
-    queue<Node*> main_queue, child_queue;
-    // push the root value in the main_queue
-    main_queue.push(root);
-    // create a temp vector to store the all the node
-    // values present at a particular level
-    vector<int> temp;
-    // Run a while loop until the main_queue is empty
-    while (!main_queue.empty()) {
-      // get the front of the main_queue
-      auto tempNode = main_queue.front();
-      // push the value of the front of the main queue
-      // in the temp vector
-      temp.push_back(tempNode->val);
-      // push all the child of the popped node in the
-      // child queue
-      for (auto it : tempNode->children)
-        child_queue.push(it);
-      // pop the front of the main queue
-      main_queue.pop();
-      // if main_queue becomes empty and child_queue
-      // is not empty then swap the content of the two
-      // queues
-      if (main_queue.empty()) {
-        main_queue = child_queue;
-        queue<Node*> temp1;
-        swap(temp1, child_queue);
-        // push the temporary vector in the ans
-        // vector
-        ans.push_back(temp);
-        // clear the temporary vector
-        temp.clear();
-      }
-    }
-    for (auto it : ans) {
-      for (auto v : it)
-        cout << v << " ";
-      cout << endl;
-    }
-  }
-};
-
-int main()
-{
-  Node* root = newNode(1);
-  root->children.push_back(newNode(3));
-  root->children.push_back(newNode(2));
-  root->children.push_back(newNode(4));
-  root->children[0]->children.push_back(newNode(5));
-  root->children[0]->children.push_back(newNode(6));
-  LevelOrderTraversal obj;
-  obj.levelOrder(root);
-  return 0;
-}
-
-// This code is contributed by aditya kumar (adityakumar129)
-
+// https://www->geeksforgeeks->org/level-order-traversal-of-n-ary-tree/
 // Java implementation of the above problem
-// https://www.studytonight.com/advanced-data-structures/nary-tree
+// https://www->studytonight->com/advanced-data-structures/nary-tree
 
 
-// https://www.geeksforgeeks.org/flatten-a-binary-tree-into-linked-list/
+// https://www->geeksforgeeks->org/flatten-a-binary-tree-into-linked-list/
+// ALSO IN C LANGUAGE OF THE GIVEN ARTICLE
 // reference striver video
 // approach :- 
 // class Solution {
@@ -99,3 +21,57 @@ int main()
 //     prev = root;
 //   }
 // };
+
+// https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
+// IMPLEMENTATION IN C
+
+
+// https://www.geeksforgeeks.org/find-the-missing-number/
+// IMPLEMENTATION IN C 
+
+
+// https://www.geeksforgeeks.org/merge-two-binary-trees-node-sum/
+// IMPLEMENTATION IN C 
+
+// https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/
+// IMPLEMENTATION IN C 
+
+// https://www.geeksforgeeks.org/backtracking-introduction/#:~:text=Backtracking%20is%20an%20algorithmic%2Dtechnique,reaching%20any%20level%20of%20the
+// Hyperlink for the Backtracking | Set 2 (Rat in a Maze) is wrong
+
+
+// https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/
+// IMPLEMENTATION IN C 
+
+// https://www.geeksforgeeks.org/reverse-sublist-linked-list/
+// IMPLEMENTATION IN C 
+
+// https://www.geeksforgeeks.org/linked-list-set-3-deleting-node/
+// IMPLEMENTATION IN C
+
+// https://www.geeksforgeeks.org/delete-middle-of-linked-list/
+// IMPLEMENTATION IN C
+
+// https://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
+// indentation not properly
+
+// https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/
+// IMPLEMENTATION IN C
+
+// https://www.geeksforgeeks.org/delete-middle-of-linked-list/
+// IMPLEMENTATION IN C
+
+// https://www.geeksforgeeks.org/delete-nth-node-from-the-end-of-the-given-linked-list/
+// IMPLEMENTATION IN C
+
+// https://www.geeksforgeeks.org/distinct-permutations-string-set-2/
+// IMPLEMENTATION IN C
+
+// https://www.geeksforgeeks.org/print-all-permutations-of-a-string-with-duplicates-allowed-in-input-string/
+// IMPLEMENTATION IN C
+
+// https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+// IMPLEMENTATION IN C
+
+// This code is contributed by Aditya Kumar (adityakumar129)
+// Node * newStudent = (Node *)malloc(sizeof(Node));

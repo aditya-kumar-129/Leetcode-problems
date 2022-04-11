@@ -12,19 +12,24 @@ struct ListNode {
 class Solution {
 public:
   ListNode* detectCycle(ListNode* head) {
-    if(!head  )
+    if (!head)
       return nullptr;
-    ListNode* slow = head;
-    ListNode* fast = head;
-    while (fast != nullptr && fast->next != nullptr)
+    ListNode* slow = head, * fast = head;
+    bool flag = false;
+    while (fast && fast->next)
     {
       slow = slow->next;
       fast = fast->next->next;
-      if(slow==fast)
+      if (slow == fast)
+      {
+        flag = true;
         break;
+      }
     }
-    if (!fast || !fast->next)
+    // In case if there is no loop
+    if (!flag)
       return nullptr;
+    // When there is a loop
     fast = head;
     while (slow != fast)
     {
