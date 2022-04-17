@@ -3,7 +3,12 @@
     "*.ejs": "html",
     "array": "cpp",
     "string": "cpp",
-    "string_view": "cpp"
+    "string_view": "cpp",
+    "iostream": "cpp",
+    "variant": "cpp",
+    "ratio": "cpp",
+    "sstream": "cpp",
+    "regex": "cpp"
   },
   "C_Cpp.errorSquiggles": "Enabled"
 }
