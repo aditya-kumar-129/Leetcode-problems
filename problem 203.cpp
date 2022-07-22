@@ -2,7 +2,6 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-//  Definition for singly-linked list.
 struct ListNode {
   int val;
   ListNode* next;
@@ -15,6 +14,7 @@ public:
   {
     if (!head)
       return head;
+    // removing all the node from the beginning if it satisfies the condition
     while (head && head->val == val)
       head = head->next;
     ListNode* curr = head, * prev = nullptr;

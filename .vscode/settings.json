@@ -1,14 +1,12 @@
 {
   "files.associations": {
     "*.ejs": "html",
-    "array": "cpp",
-    "string": "cpp",
-    "string_view": "cpp",
     "iostream": "cpp",
-    "variant": "cpp",
-    "ratio": "cpp",
-    "sstream": "cpp",
+    "chrono": "cpp",
+    "random": "cpp",
+    "limits": "cpp",
+    "valarray": "cpp",
+    "string_view": "cpp",
     "regex": "cpp"
-  },
-  "C_Cpp.errorSquiggles": "Enabled"
+  }
 }

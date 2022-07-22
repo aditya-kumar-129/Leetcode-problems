@@ -24,6 +24,40 @@ public:
   }
 };
 
+// Method :- 2
+// Reverse the List and use the basics that is used to convert a binary number to decimal
+
+class Solution {
+public:
+  ListNode* reverseList(ListNode* head)
+  {
+    ListNode* current = head;
+    ListNode* prev = nullptr, * next = nullptr;
+    while (current != nullptr)
+    {
+      next = current->next;
+      current->next = prev;
+      prev = current;
+      current = next;
+    }
+    head = prev;
+    return head;
+  }
+  int getDecimalValue(ListNode* head)
+  {
+    head = reverseList(head);
+    int result = 0;
+    int i = 0;
+    while (head)
+    {
+      result += pow(2, i) * head->val;
+      head = head->next;
+      i++;
+    }
+    return result;
+  }
+};
+
 class Solution {
 public:
   int getDecimalValue(ListNode* head)

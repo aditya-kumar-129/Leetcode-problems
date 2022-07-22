@@ -1,0 +1,15 @@
+https://www.geeksforgeeks.org/chocolate-distribution-problem/
+https://www.geeksforgeeks.org/find-minimum-element-in-a-sorted-and-rotated-array/
+https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
+https://www.geeksforgeeks.org/permute-two-arrays-sum-every-pair-greater-equal-k/
+https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/
+
+
+https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb-stairs-with-minimum-moves-official/ojquestion
+https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb-stairs-with-variable-jumps-official/ojquestion
+https://www.pepcoding.com/resources/online-java-foundation/recursion-backtracking/target-sum-subsets-official/ojquestion
+
+
+
+
+
